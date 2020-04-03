@@ -4,31 +4,6 @@ void main() => runApp(BottomNavigatorView());
 
 List<Widget> screens = [Text('Chat'), Text('Settings')];
 
-// class ChatPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     // Todo: use state to manage bubble nips, color, and name
-//     Widget chatBubble = Bubble(
-//       child: Text('Hello World'),
-//     );
-
-//     return MaterialApp(
-//       title: 'TeryGram',
-//       theme: ThemeData(
-//         primarySwatch: Colors.purple,
-//       ),
-//       home: Scaffold(
-//           bottomNavigationBar: BottomNavigationBarWidget(),
-//           appBar: AppBar(centerTitle: true, title: Text('TeryGram')),
-//           body: ListView(
-//             children: <Widget>[chatBubble],
-//           )
-//           // in these two columns contain the text bubble and the user icon
-//           ),
-//     );
-//   }
-// }
-
 // Settings Page model
 class BottomNavigatorView extends StatefulWidget {
   @override
