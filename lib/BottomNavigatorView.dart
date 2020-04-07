@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:terygram/Setup/Pages/ChatPage.dart';
 import 'package:terygram/Setup/Pages/SettingsPage.dart';
 
 List<Widget> screens = [
-  Text('Chat'),
+  ChatPage(),
   SettingsPage()
 ]; // TODO(Perry): fix bug where every time i click on the settings tab, it renders SettingsPage widget which has this bottomNavigationBar, created an infinite amount of navigatorbars
 
@@ -18,13 +19,7 @@ class _BottomNavigatorViewState extends State<BottomNavigatorView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Settings',
-      theme: ThemeData(primarySwatch: Colors.purple),
       home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          // Todo: Make appbar bigger
-          title: Text('Settings'),
-        ),
         body: screens[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
