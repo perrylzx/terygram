@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:terygram/BottomNavigatorView.dart';
+import 'package:terygram/Setup/LoginPage.dart';
 
 void main() => runApp(Home());
 
@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(child: BottomNavigatorView()),
+        body: Container(child: LoginPage()),
       ),
     );
   }
