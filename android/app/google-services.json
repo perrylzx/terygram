@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "916337403809",
+    "firebase_url": "https://terygram-d7713.firebaseio.com",
+    "project_id": "terygram-d7713",
+    "storage_bucket": "terygram-d7713.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916337403809:android:f70c6f84acbaf57dea8de0",
+        "android_client_info": {
+          "package_name": "com.example.terygram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916337403809-t58ua6ds525oq7ag4aokglssp9b2gh14.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_bdNaJhySdT7FHqhYGpktoaCf2l2Y9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916337403809-t58ua6ds525oq7ag4aokglssp9b2gh14.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
