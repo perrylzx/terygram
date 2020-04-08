@@ -52,13 +52,21 @@ class _LoginPageState extends State<LoginPage> {
     if (formState.validate()) {
       formState.save();
       try {
-        Object user = (await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password));
+        Object user = (await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: (email).trim(), password: password));
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => BottomNavigatorView()));
       } catch (e) {
         print(e);
       }
     }
+  }
+}
+
+Future signOut() async {
+  try {
+    return await FirebaseAuth.instance.signOut();
+  } catch (e) {
+    print(e);
   }
 }
