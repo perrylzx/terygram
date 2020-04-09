@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:terygram/Setup/Pages/ChatPage.dart';
-import 'package:terygram/Setup/Pages/SettingsPage.dart';
+import 'package:terygram/Pages/ChatPage.dart';
+import 'package:terygram/Pages/settingsPage.dart';
 
-List<Widget> screens = [
-  ChatPage(),
-  SettingsPage()
-]; // TODO(Perry): fix bug where every time i click on the settings tab, it renders SettingsPage widget which has this bottomNavigationBar, created an infinite amount of navigatorbars
+List<Widget> screens = [ChatPage(), SettingsPage()];
 
-// Settings Page model
 class BottomNavigatorView extends StatefulWidget {
   @override
   _BottomNavigatorViewState createState() => _BottomNavigatorViewState();
@@ -32,10 +28,6 @@ class _BottomNavigatorViewState extends State<BottomNavigatorView> {
           ],
           currentIndex: currentIndex,
           onTap: (int newIndex) {
-            /// When an icon in the [BottomNavigationBar] is tapped,
-            /// we want to change the current view to the new view
-            /// representented by the recently tapped
-            /// [BottomNavigationBarItem].
             setState(() {
               currentIndex = newIndex;
             });
