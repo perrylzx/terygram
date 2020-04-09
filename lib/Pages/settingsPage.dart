@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:terygram/Setup/LoginPage.dart';
+import 'package:terygram/Pages/loginPage.dart';
 import 'package:terygram/main.dart';
 
 class SettingsPage extends StatefulWidget {

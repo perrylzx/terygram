@@ -63,8 +63,9 @@ class _LoginPageState extends State<LoginPage> {
     if (formState.validate()) {
       formState.save();
       try {
-        Object user = (await authService.signInWithEmailAndPassword(
-            email: (email).trim(), password: password));
+        // TODO(Perry): this function returns a user. pass in user to chatpage and login to display username
+        await authService.signInWithEmailAndPassword(
+            email: (email).trim(), password: password);
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => BottomNavigatorView()));
       } catch (e) {
@@ -78,8 +79,9 @@ class _LoginPageState extends State<LoginPage> {
     if (formState.validate()) {
       formState.save();
       try {
-        Object user = (await authService.createUserWithEmailAndPassword(
-            email: (email).trim(), password: password));
+        // TODO(Perry): this function returns a user. pass in user to chatpage and login to display username
+        await authService.createUserWithEmailAndPassword(
+            email: (email).trim(), password: password);
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => BottomNavigatorView()));
       } catch (e) {
