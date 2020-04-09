@@ -41,6 +41,7 @@ class _ChatPageState extends State<ChatPage> {
       ),
       body: Column(children: [
         Expanded(
+          // for each new document created in the messages collection, display it in the chat Page
           child: StreamBuilder(
               stream: Firestore.instance
                   .collection('chats/main/messages')
