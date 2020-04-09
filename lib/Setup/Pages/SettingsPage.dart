@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:terygram/Setup/LoginPage.dart';
+import 'package:terygram/main.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -11,24 +12,19 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          FlatButton.icon(
-              icon: Icon(Icons.person),
-              label: Text('Logout'),
+          RaisedButton(
+              color: Colors.blue,
+              child: Text('Logout'),
               onPressed: () async {
                 await signOut();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home()),
+                );
               })
         ],
         centerTitle: true,
         title: Text('Settings'),
-      ),
-      body: Container(
-        child: Row(
-          children: [
-            Center(
-                // child: RaisedButton(child: Text('sdf'), onPressed:),
-                ),
-          ],
-        ),
       ),
     );
   }
