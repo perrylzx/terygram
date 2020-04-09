@@ -3,6 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatefulWidget {
+  final ScrollController scrollController;
+  InputField(this.scrollController);
+
   @override
   InputFieldState createState() {
     return InputFieldState();
@@ -37,17 +40,22 @@ class InputFieldState extends State<InputField> {
                 },
               ),
             ),
-            Expanded(
-              child: RaisedButton(
-                onPressed: () async {
-                  if (_formKey.currentState.validate()) {
-                    Firestore.instance
-                        .collection('chats/main/messages')
-                        .add({'content': _messageController.text});
-                  }
-                },
-                child: Text('Submit'),
-              ),
+            IconButton(
+              onPressed: () async {
+                widget.scrollController.animateTo(
+                  widget.scrollController.position.maxScrollExtent,
+                  curve: Curves.easeOut,
+                  duration: const Duration(milliseconds: 300),
+                );
+                print(Timestamp.now());
+                if (_formKey.currentState.validate()) {
+                  Firestore.instance.collection('chats/main/messages').add({
+                    'content': _messageController.text,
+                    'dateCreated': Timestamp.now()
+                  });
+                }
+              },
+              icon: Icon(Icons.arrow_forward_ios),
             ),
           ],
         ),
@@ -63,6 +71,8 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  ScrollController _scrollController = new ScrollController();
+
   Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
     return ListTile(
       title: Row(
@@ -104,11 +114,12 @@ class _ChatPageState extends State<ChatPage> {
           child: StreamBuilder(
               stream: Firestore.instance
                   .collection('chats/main/messages')
-                  // .orderBy('_timeStampUTC', descending: true) //TODO(Perry): Order by time descending
+                  .orderBy('dateCreated', descending: false)
                   .snapshots(),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) return const Text('Loading...');
                 return ListView.builder(
+                  controller: _scrollController,
                   itemExtent: 80.0,
                   itemCount: snapshot.data.documents.length,
                   itemBuilder: (context, index) => _buildListItem(
@@ -120,7 +131,7 @@ class _ChatPageState extends State<ChatPage> {
         ),
         Align(
           alignment: Alignment.bottomCenter,
-          child: InputField(),
+          child: InputField(_scrollController),
         )
       ]),
     );
